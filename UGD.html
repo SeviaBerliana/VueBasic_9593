@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unguided</title>
+    
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>GAME TEBAK NOMOR</h1>
+        <h2>Pilih nomor 1-10</h2>
+        <div>
+            <div>
+                <input type="number" v-model="tebakNo" placeholder="ketik nomor" :disabled="cek"/>
+            </div>
+            <div>
+                <button @click="tebak" :disabled="cek">Pilih nomor</button>
+            </div>    
+        </div>
+        <br><br>
+
+        <div v-if="jawaban==true">
+            <h2>jawaban kamu BENAR</h2> 
+            <h4>angkanya {{ randomNumber }}</h4>
+            <button @click="mainlagi">Main Lagi</button>
+        </div>
+
+        <div v-if="jawaban==false">
+            <div v-if="kesempatan>0">
+                <h2>jawaban kamu SALAH</h2> 
+                <h4>kesempatan kamu sisa {{kesempatan}}</h4>
+                <button @click="tebaklagi">Tebak Lagi</button>    
+            </div>
+            <div v-else>
+                <h2>jawaban kamu SALAH</h2> 
+                <h4>kesempatan kamu sudah habis</h4>
+                <h4>angkanya {{ randomNumber }}</h4>
+                <button @click="mainlagi">Main Lagi</button>
+            </div>
+        </div>
+
+        <br>
+        <footer>{{sevia.nama}} || {{sevia.npm}} || {{sevia.kelas}}</footer>
+        <h6>{{randomNumber}}</h1>
+    </div>
+</body>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            randomNumber: Math.floor(Math.random() * (10 - 1 + 1)) + 1,
+            kesempatan: 3,
+            tebakNo: 0,
+            jawaban:undefined,
+            cek:false,
+            sevia: {
+                nama: 'Sevia Berliana W.',
+                npm: '180709593',   
+                kelas: 'D',
+            },
+            
+        },
+        methods: {
+            tebak(){
+                if(this.tebakNo == this.randomNumber){
+                    this.jawaban=true
+                    this.cek=true;
+                }
+                else{
+                    this.jawaban=false
+                    this.kesempatan--;
+                    this.cek=true
+                }
+            },
+            tebaklagi(){
+                this.jawaban=undefined
+                this.cek=false
+            },
+            mainlagi(){
+                location.reload()
+            },
+        },
+    });
+</script>
+
+<style>
+    *{   
+        text-align: center;
+    }
+
+    footer{
+        margin-top: 50px;
+    }
+
+    button{
+        margin-top: 20px;
+    }
+
+    h6{
+        margin-top: 300px;
+        color: gray;
+    }
+</style>
+</html>
