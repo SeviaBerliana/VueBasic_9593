@@ -16,47 +16,7 @@
 
         <div class="card-deck" style="width: auto;">
             <div class="card">
-                <h3 class="card-title">TO DO LIST</h3>
-                <!-- <ul class="list-group" style="margin-bottom: 5%;">     
-                    <li class="list-group-item" >
-                        <button class="btn btn-outline-danger btn-sm float-right" @click="hapus">hapus</button> 
-                        <div v-if="kegiatan.prioritas=='Penting'" style="margin-bottom: 2%; text-align: center;">
-                            <p class="card-text text-danger" ><strong>{{ kegiatan.prioritas }}</strong></p>
-                        </div>
-                        <div v-else-if="kegiatan.prioritas=='Biasa'" style="margin-bottom: 2%; text-align: center;">
-                            <p class="card-text text-warning"><strong>{{ kegiatan.prioritas }}</strong></p>
-                        </div>
-                        <div v-else-if="kegiatan.prioritas=='Tidak Penting'" style="margin-bottom: 2%; text-align: center;">
-                            <p class="card-text text-success"><strong>{{ kegiatan.prioritas }}</strong></p>
-                        </div>
-                        <h5 class="card-subtitle mb-2">{{ kegiatan.namaKeg}}</h5>
-                        <p style="white-space: pre-line;" class="card-text">{{ kegiatan.catatan }}</p>
-                    </li>
-                    <li class="list-group-item" >
-                        <button class="btn btn-outline-danger btn-sm float-right" @click="hapus">hapus</button> 
-                        <div style="margin-bottom: 2%; text-align: center;">
-                            <p class="card-text text-warning"><strong>biasa</strong></p>
-                        </div>
-                        <h5 class="card-subtitle mb-2">{{ kegiatan.namaKeg}}</h5>
-                        <p style="white-space: pre-line;" class="card-text">{{ kegiatan.catatan }}</p>
-                    </li>
-                    <li class="list-group-item" >
-                        <button class="btn btn-outline-danger btn-sm float-right" @click="hapus">hapus</button> 
-                        <div style="margin-bottom: 2%; text-align: center;">
-                            <p class="card-text text-success"><strong>tidak penting</strong></p>
-                        </div>
-                        <h5 class="card-subtitle mb-2">{{ kegiatan.namaKeg}}</h5>
-                        <p style="white-space: pre-line;" class="card-text">{{ kegiatan.catatan }}</p>
-                    </li>
-                    <li class="list-group-item" >
-                        <button class="btn btn-outline-danger btn-sm float-right" @click="hapus">hapus</button> 
-                        <div style="margin-bottom: 2%; text-align: center;">
-                            <p class="card-text text-success"><strong>tidak penting</strong></p>
-                        </div>
-                        <h5 class="card-subtitle mb-2">{{ kegiatan.namaKeg}}</h5>
-                        <p style="white-space: pre-line;" class="card-text">{{ kegiatan.catatan }}</p>
-                    </li>
-                </ul> -->
+                <h3 class="card-title">TO DO LIST</h3> <br>
 
                 <ul class="list-group" v-for="(listKegiatan, index) in listKegiatan" :key="index" style="margin-bottom: 2%;">
                     <li class="list-group-item" >
@@ -72,14 +32,12 @@
                         </div>
                         <h5 class="card-subtitle mb-2">{{ listKegiatan.namaKeg}}</h5>
                         <p style="white-space: pre-line;" class="card-text">{{ listKegiatan.catatan }}</p>
-                        <!-- <p class="card-text">{{ listKegiatan.catatan }}</p> -->
                     </li>
                 </ul>
             </div>
 
             <div class="card" style="height: fit-content;">
-                <h3 class="card-title">INPUT KEGIATAN</h3>
-                <br>
+                <h3 class="card-title">INPUT KEGIATAN</h3> <br>
 
                 <div>
                     <div class="form-group row">
@@ -93,30 +51,17 @@
                         <label class="col-md-3">Prioritas</label>
                             <div class="col-sm-8" >
                                 <select v-model="kegiatan.prioritas" class="form-control">
-                                    <option disabled value="">Pilih prioritasmu dalam tugas ini</option>
+                                    <option disabled value="">Pilih prioritasmu untuk tugas ini</option>
                                     <option>Penting</option>
                                     <option>Biasa</option>
                                     <option>Tidak Penting</option>
                                 </select>
-                                <!-- <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Penting" v-model="kegiatan.prioritas">
-                                    <label class="form-check-label" for="gridRadios1">Penting</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Biasa" v-model="kegiatan.prioritas" >
-                                    <label class="form-check-label" for="gridRadios2">Biasa</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Tidak Penting" v-model="kegiatan.prioritas" >
-                                    <label class="form-check-label" for="gridRadios3">Tidak Penting</label>
-                                </div> -->
                             </div>
                         </div>
                     </fieldset>
                     <div class="form-group row">
                         <label class="col-md-3">Catatan</label>
                         <div class="col-sm-8">
-                            <!-- <input type="text" class="form-control" v-model="kegiatan.catatan" placeholder="Catatan"/> -->
                             <textarea type="text" class="form-control" v-model="kegiatan.catatan" placeholder="Catatan"></textarea>
                         </div>
                     </div>
@@ -128,9 +73,6 @@
             </div>
         </div>
 
-        <br><br>
-
-        <br>
         <footer>{{sevia.nama}} || {{sevia.npm}} || {{sevia.kelas}}</footer>
     </div>
 </body>
@@ -194,7 +136,7 @@
     }
 
     footer{
-        margin-top: 40px;
+        margin-top: 80px;
     }
 
     .card-deck{
